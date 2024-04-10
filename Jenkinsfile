@@ -42,10 +42,10 @@ pipeline {
    }
 
    stage("Push to Dockerhub") {
-     when { 
-       equals 
-          expected: true,
-          actual: "${params.PushImage}" }
+      when { 
+         expression { 
+            params.PushImage == 'true' }
+      }
      steps {
        script {
          echo "Pushing the image to docker hub"
