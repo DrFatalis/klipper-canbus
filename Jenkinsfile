@@ -1,7 +1,7 @@
 /* Declarative Pipeline */
 pipeline {
    agent {
-      dockerfile true
+      label 'docker-agent'
    }
 
    options {
