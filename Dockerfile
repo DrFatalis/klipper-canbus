@@ -12,7 +12,7 @@ WORKDIR /opt
 
 # Getting Klipper from Repo
 RUN python -m venv venv \
- && venv/bin/pip install pyserial setuptools python-can
+ && venv/bin/pip install numpy pyserial setuptools python-can
 
 ARG KLIPPER_REPO=https://github.com/Klipper3d/klipper
 ARG KLIPPER_VERSION=master
@@ -75,10 +75,10 @@ RUN make clean
 FROM python:3.12-slim-bookworm as run
 
 RUN apt update \
- && apt install -y python3-can dfu-util usbutils iproute2 net-tools can-utils \
+ && apt install -y python3-numpy python3-matplotlib libatlas-base-dev libopenblas-dev dfu-util usbutils iproute2 net-tools can-utils \
  && apt clean
 
-RUN pip3 install python-can pyserial
+RUN pip3 install python-can pyserial numpy matplotlib
 
 WORKDIR /opt
 RUN groupadd klipper --gid 1000 \
