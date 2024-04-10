@@ -1,6 +1,6 @@
 /* Declarative Pipeline */
 pipeline {
-   agent any(1)
+   agent any
 
    options {
       buildDiscarder(logRotator(numToKeepStr: '30'))
