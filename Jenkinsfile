@@ -22,7 +22,7 @@ pipeline {
             description: 'Image tag')
         booleanParam(
            name: "PushImage", 
-           defaultValue: false)
+           defaultValue: true)
     }
 
    // Stage Block
