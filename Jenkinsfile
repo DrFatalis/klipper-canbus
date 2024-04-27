@@ -25,10 +25,6 @@ pipeline {
            defaultValue: true)
     }
 
-   environment {
-        DOCKERHUB_CREDENTIALS=credentials('DockerHubCredentials')
-   }
-
    // Stage Block
    stages {
       stage("Build docker image") {
@@ -57,13 +53,10 @@ pipeline {
             
                // Create a tag that going to push into DockerHub
                sh "docker tag ${localImage} ${repositoryName} "
-               sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-               def image = docker.image("${repositoryName}");
-               image.push()
-               /*docker.withRegistry("https://registry.hub.docker.com", "DockerHubCredentials") {
+               docker.withRegistry("https://registry.hub.docker.com", "DockerHubCredentials") {
                   def image = docker.image("${repositoryName}");
                   image.push()
-               }*/
+               }
             }
          }
       }
