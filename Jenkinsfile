@@ -62,5 +62,14 @@ pipeline {
             }
          }
       }
+
+      stage("Cleaning unused image") {
+         steps {
+            script {
+               echo "Pruning unused images"
+               sh "docker image prune -af"
+            }
+         }
+      }
    }
 }
