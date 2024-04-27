@@ -42,7 +42,7 @@ pipeline {
       stage("Push to Dockerhub") {
          when { 
             expression { 
-               params.PushImage == 'true' }
+               params.PushImage }
          }
          steps {
             script {
