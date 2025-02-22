@@ -12,5 +12,4 @@ https://hub.docker.com/repository/docker/drfatalis/klipper-canbus/general
 docker exec -it -u0 containerName /bin/bash
 
 apt install make
-cd klipper
-mkdir out/board
+make menuconfig
