@@ -2,7 +2,7 @@
 ## Get Klipper Source and Build venv
 ## Inspired from mkuf
 ##
-FROM python:3.11-bookworm as build
+FROM python:3.13-bookworm as build
 
 RUN apt update \
  && apt install -y cmake make gcc gcc-arm-none-eabi python3 python3-pip python3-can usbutils gcc-avr \
@@ -72,13 +72,13 @@ RUN make clean
 ###
 ## Klippy Runtime Image
 ##
-FROM python:3.11-slim-bookworm as run
+FROM python:3.13-slim-bookworm as run
 
 RUN apt update \
  && apt install -y python3-numpy python3-matplotlib libatlas-base-dev libopenblas-dev dfu-util usbutils iproute2 net-tools can-utils \
  && apt clean
 
-RUN pip3 install python-can pyserial numpy matplotlib
+RUN pip3 install --index-url https://pypi.org/simple python-can pyserial numpy matplotlib
 
 WORKDIR /opt
 RUN groupadd klipper --gid 1000 \
