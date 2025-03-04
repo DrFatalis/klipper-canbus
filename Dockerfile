@@ -12,7 +12,7 @@ WORKDIR /opt
 
 # Getting Klipper from Repo
 RUN python -m venv venv \
- && venv/bin/pip install numpy pyserial setuptools python-can
+ && venv/bin/pip install numpy pyserial setuptools python-can --default-timeout=100
 
 ARG KLIPPER_REPO=https://github.com/Klipper3d/klipper
 ARG KLIPPER_VERSION=master
