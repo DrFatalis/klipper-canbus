@@ -5,7 +5,7 @@
 FROM python:3.11-bookworm as build
 
 RUN apt update \
- && apt install -y cmake make gcc gcc-arm-none-eabi python3 python3-pip python3-can usbutils gcc-avr python3-can \
+ && apt install -y cmake make gcc gcc-arm-none-eabi python3 python3-pip python3-can usbutils gcc-avr \
  && apt clean
 
 WORKDIR /opt
