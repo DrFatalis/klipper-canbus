@@ -12,7 +12,7 @@ WORKDIR /opt
 
 # Getting Klipper from Repo
 RUN python -m venv venv \
- && venv/bin/pip install --index-url https://pypi.org/simple numpy pyserial setuptools python-can --default-timeout=1000 --trusted-host pypi.org --trusted-host files.pythonhosted.org
+ && venv/bin/pip install numpy pyserial setuptools python-can --default-timeout=1000 --trusted-host pypi.org --trusted-host files.pythonhosted.org
 
 ARG KLIPPER_REPO=https://github.com/Klipper3d/klipper
 ARG KLIPPER_VERSION=master
@@ -78,7 +78,7 @@ RUN apt update \
  && apt install -y python3-numpy python3-matplotlib libatlas-base-dev libopenblas-dev dfu-util usbutils iproute2 net-tools can-utils \
  && apt clean
 
-RUN pip3 install --default-timeout=1000 --trusted-host pypi.org --trusted-host files.pythonhosted.org --index-url https://pypi.org/simple python-can pyserial numpy matplotlib
+RUN pip3 install --default-timeout=1000 --trusted-host pypi.org --trusted-host files.pythonhosted.org python-can pyserial numpy matplotlib
 
 WORKDIR /opt
 RUN groupadd klipper --gid 1000 \
