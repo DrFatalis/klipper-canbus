@@ -28,7 +28,7 @@ Finally, use STM32Programmer to open that file, erase the whole octopus chip and
 
   To find the can uuid, you might have to use can0 and not can-mercury. As i have multiple printer on the same host, i configured custom names: 
 
-  /opt/klippy-env/bin/python /opt/klipper/scripts/canbus_query.py can-mercury
+  python /opt/klipper/scripts/canbus_query.py can-mercury
 
 
 ## Flash with can if already configured
