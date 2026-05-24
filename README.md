@@ -4,7 +4,7 @@ Docker image ready to be used here:
 
 https://hub.docker.com/repository/docker/drfatalis/klipper-canbus/general
 
-# Firmware already compiled for octopus with STM32F446ZET6 and ebb36/42
+# Firmware already compiled for octopus with STM32H723ZET6 and ebb36/42
 Klipper at /opt/klipper/firmware_out --> board_klipper.bin  ebb_klipper.bin
 
 Katapult as /opt/katapult/firmware_out --> board_katapult.bin  ebb_katapult.bin
