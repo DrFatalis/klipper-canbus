@@ -4,10 +4,28 @@ Docker image ready to be used here:
 
 https://hub.docker.com/repository/docker/drfatalis/klipper-canbus/general
 
-# Firmware already compiled for octopus with STM32H723ZET6 and ebb36/42
+# Firmware already compiled for Octopus Pro v1.1 with STM32H723ZET6 and ebb36/42
 Klipper at /opt/klipper/firmware_out --> board_klipper.bin  ebb_klipper.bin
 
 Katapult as /opt/katapult/firmware_out --> board_katapult.bin  ebb_katapult.bin
+
+# Katapult needs to be configured on the board
+Check the official katapult github here: https://github.com/Arksine/katapult
+
+To perform the katapult flash, disconnect any things from the board (sd card included). 
+Put the octopus pro v1.1 to DFU mode with the jumper connected, and make sure that the USB power supply is there. 
+Then, use something like WinSCP to connect to you docker host host and retreive board.katapult.bin. 
+Finally, use STM32Programmer to open that file, erase the whole octopus chip and flash the new bootloader.
+
+## Flash klipper if no can yet configured
+  Connect to your docker host, and enter the container: 
+
+  docker exec -it -u0 container_name bash
+
+  Then execute the command to flash the octopus board
+  
+  python3 /opt/katapult/scripts/flashtool.py -f /opt/klipper/firmware_out/board.klipper.bin -d /dev/serial/by-id/usb-katapult_your_board_id
+
 
 ## Flash with can if already configured
   Check the official katapult github here: https://github.com/Arksine/katapult
