@@ -35,10 +35,10 @@ Finally, use STM32Programmer to open that file, erase the whole octopus chip and
   Check the official katapult github here: https://github.com/Arksine/katapult
   ## Board
   cd /opt/katapult/
-  ./scripts/flash_can.py --interface can-mercury --uuid fa05df1c74ce -f /opt/klipper/firmware_out/board.klipper.bin
+  /opt/katapult/scripts/flash_can.py --interface can-mercury --uuid fa05df1c74ce -f /opt/klipper/firmware_out/board_klipper.bin
 
   ## EBB
-  ./scripts/flash_can.py --interface can-mercury --uuid d10ef1332c72 -f /opt/klipper/firmware_out/ebb.klipper.bin
+  /opt/katapult/scripts/flash_can.py --interface can-mercury --uuid d10ef1332c72 -f /opt/klipper/firmware_out/ebb_klipper.bin
 
 # Klipper flashing
 
