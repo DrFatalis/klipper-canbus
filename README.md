@@ -26,6 +26,10 @@ Finally, use STM32Programmer to open that file, erase the whole octopus chip and
   
   python3 /opt/katapult/scripts/flashtool.py -f /opt/klipper/firmware_out/board.klipper.bin -d /dev/serial/by-id/usb-katapult_your_board_id
 
+  To find the can uuid, you might have to use can0 and not can-mercury. As i have multiple printer on the same host, i configured custom names: 
+
+  /opt/klippy-env/bin/python /opt/klipper/scripts/canbus_query.py can-mercury
+
 
 ## Flash with can if already configured
   Check the official katapult github here: https://github.com/Arksine/katapult
